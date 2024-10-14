@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CsvData } from "../types/CsvData";
 import Pagination from "../utils/Pagination";
 import TableRow from "../utils/TableRow";
@@ -13,6 +13,10 @@ const DisplayCsvFile: React.FC<{
 
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 10;
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [data]);
 
   const handlePageChange = (newPage: number) => {
     setCurrentPage(newPage);
